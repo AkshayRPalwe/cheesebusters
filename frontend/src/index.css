@@ -1,0 +1,289 @@
+html {
+  font-size: 62.5%; /* default font size for browser is 16px * 62.5 = 10px = 1rem(new measurement which is equal to 10px)*/
+  box-sizing: border-box; /*The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.*/
+}
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#root {
+  height: 100%; /* explation at 48:20 */ /*we are using this because of having roots ID inside amazona-->src-->index.html, there we have a root element as a <div> */
+}
+
+/*Layout*/
+.grid-container {
+  /*A grid is a network of intersecting parallel lines, whether real or imaginary*/
+  display: grid; /*The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.*/
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr; /* 1 fragment(we have only 1 colums) */
+  grid-template-rows: 5rem 1fr 5rem; /*for header main and footer-->size of row*/
+  height: 100%;
+}
+header {
+  grid-area: header; /*we are connecting this element to above header template */
+  background-color: #203040; /*Dark Blue*/
+}
+main {
+  grid-area: main;
+  padding: 0.7rem; /*The CSS padding properties are used to generate space around an element's content, inside of any defined borders.*/
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff; /*White*/
+}
+/*Common Classes*/
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0; /* vertically: 1rem and horizontally 0*/
+}
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+a {
+  text-decoration: none; /*it will remove underlines from links*/
+}
+
+a:hover {
+  /*if hover happens on the link means mouse travels through a link, color will get changed to orange*/
+  color: #ff8000; /*orange*/
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1rem;
+}
+input,
+select,
+textarea,
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+input:hover,
+select:hover,
+textarea:hover,
+button:hover {
+  border: 0.1rem #404040 solid;
+}
+button.primary {
+  background-color: #f0c040;
+}
+button.block {
+  width: 100%;
+}
+button.small {
+  font-size: 1.2rem;
+}
+/*Header*/
+
+header a {
+  /*for links inside header change the color to white */ /* header a--> means all links inside header */
+  color: #ffffff;
+  padding: 1rem; /* Padding is how much an element is away from itself — how much distance an element wants to keep with the elements inside it.*/
+} /* Margin is an element’s personal space — how much distance the element wants to keep with other elements around it. */
+
+a.brand {
+  /* to make changes in links inside brand class */
+  color: #ffffff; /* a:hover makes every link orange before we click it, to make an exception for our brandName we are changing using this name */
+  font-size: 3rem;
+  font-weight: bold;
+}
+.badge {
+  background-color: #f02020;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
+}
+.row {
+  /*to keep "amazona" at left and "sign In & cart" on right side, we use flex. Basically to keep all blocks in one line*/
+  display: flex; /*to use flex we use ".row" class, it will create item next to each other not on separate lines, for that we need to set "display:flex" */
+  flex-wrap: wrap; /* to make rows responsive, if there is not enough space it will get on next line */
+  justify-content: space-between; /*to create maximum distance between items in a row...if there are two elements--ele1            ele2...if there are 3 elements-->ele1     ele2     ele3<--if there are 4 elements-->ele1     ele2    ele3     ele4<--  In a same row*/
+  align-items: center; /* The align-items property specifies the default alignment for items inside the flexible container.A flex container expands items to fill available free space or shrinks them to prevent overflow. center	Items are positioned at the center of the container */
+}
+
+.row.center {
+  /* for footer--> it aquires properties of row also i.e. ".row.center" */
+  justify-content: center; /* when using as className, use like--> "row center"--do not use  '.' */
+} /* to keep footer in center */
+
+.row.top {
+  align-items: flex-start;
+}
+
+.col-1 {
+  flex: 1 1 25rem;
+}
+
+.col-2 {
+  flex: 2 1 50rem;
+}
+.min-30 {
+  min-width: 30rem;
+}
+
+/* Images */
+
+img {
+  border-radius: 0.5rem; /* radius of all images */
+}
+img.small {
+  max-width: 5rem;
+  width: 100%;
+}
+img.medium {
+  /* for image having class "medium" */
+  max-width: 29rem;
+  width: 100%;
+}
+img.large {
+  width: 80%;
+}
+
+/* Card */
+.card {
+  /* border, background color outside of image */
+  border: 0.1rem #c0c0c0 solid; /*grey color and style solid*/
+  background-color: #f8f8f8; /*very light gray */
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card-body {
+  /* padding for name, star and price */
+  padding: 1rem;
+}
+.card-body > * {
+  /* for all elements inside body */
+  margin-bottom: 0.5rem; /* The margin-bottom property sets the bottom margin of an element. */
+}
+.price {
+  font-size: 2rem;
+}
+/* Rating */
+.rating span {
+  /* for all spans inside rating */
+  color: #f0c040; /* Gold */ /* for stars, we need to add another style */
+  margin: 0.1rem;
+}
+.rating span:last-child {
+  color: #404040; /* medium dark shade of gray */
+}
+
+/* Alert */
+.loading {
+  display: block !important;
+}
+.success {
+  color: #20a020;
+}
+.danger {
+  color: #a02020;
+}
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+.alert-info {
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
+.alert-danger {
+  color: #a02020;
+  background-color: #ffe0e0;
+}
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
+/* Form */
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.form label {
+  margin: 1rem 0;
+}
+
+/* Dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #203040;
+  margin: 0;
+  margin-top: 0.4rem;
+  border-radius: 0.5rem;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Checkout Steps */
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+.checkout-steps > div.active {
+  border-top-color: #f08000;
+  color: #f08000;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table td,
+.table th {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.2rem;
+}
