@@ -36,7 +36,7 @@ const App = () => {
         <header className="row">
           <div>
             <Link className="brand" to="/">
-              amazona
+              CheeseBusters
             </Link>
           </div>
           <div>
