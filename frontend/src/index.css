@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap");
+
 html {
   font-size: 62.5%; /* default font size for browser is 16px * 62.5 = 10px = 1rem(new measurement which is equal to 10px)*/
   box-sizing: border-box; /*The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.*/
@@ -6,7 +8,7 @@ body {
   margin: 0;
   height: 100vh;
   font-size: 1.6rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,12 +25,13 @@ body {
     "main"
     "footer";
   grid-template-columns: 1fr; /* 1 fragment(we have only 1 colums) */
-  grid-template-rows: 5rem 1fr 5rem; /*for header main and footer-->size of row*/
+  grid-template-rows: 10rem 1fr 5rem; /*for header main and footer-->size of row*/
   height: 100%;
 }
 header {
   grid-area: header; /*we are connecting this element to above header template */
-  background-color: #203040; /*Dark Blue*/
+  background-color: #343a40; /*Dark Blue*/
+  padding: 24px 16px;
 }
 main {
   grid-area: main;
@@ -45,8 +48,9 @@ h1 {
   padding: 1rem 0; /* vertically: 1rem and horizontally 0*/
 }
 h2 {
-  font-size: 1.6rem;
+  font-size: 2rem;
   padding: 1rem 0;
+  font-weight: bold;
 }
 
 a {
@@ -72,31 +76,34 @@ select,
 textarea,
 button {
   padding: 1rem;
-  border-radius: 0.5rem;
-  border: 0.1rem #a4a4a4 solid;
+  border-radius: 0.1rem;
+  border: 0.1rem #000000 solid;
   font-size: 1.6rem;
+
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 button {
-  background-color: #f8f8f8;
+  background-color: #000000;
+  color: #fdfbfb;
   cursor: pointer;
 }
 input:hover,
 select:hover,
 textarea:hover,
 button:hover {
-  border: 0.1rem #404040 solid;
+  border: 0.1rem #60f060 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #000000;
 }
 button.block {
   width: 100%;
 }
 button.small {
   font-size: 1.2rem;
+  color: #ffffff;
 }
 /*Header*/
 
@@ -109,8 +116,10 @@ header a {
 a.brand {
   /* to make changes in links inside brand class */
   color: #ffffff; /* a:hover makes every link orange before we click it, to make an exception for our brandName we are changing using this name */
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
+  padding: 5.375px 0px;
+  margin: 0px 32px 0px 0px;
 }
 .badge {
   background-color: #f02020;
@@ -137,6 +146,10 @@ a.brand {
   align-items: flex-start;
 }
 
+.row.start {
+  justify-content: flex-start;
+}
+
 .col-1 {
   flex: 1 1 25rem;
 }
@@ -144,14 +157,21 @@ a.brand {
 .col-2 {
   flex: 2 1 50rem;
 }
+
+.col-3 {
+  flex: 32 1 75rem;
+}
+
 .min-30 {
   min-width: 30rem;
 }
-
+.p-1 {
+  padding: 1rem;
+}
 /* Images */
 
 img {
-  border-radius: 0.5rem; /* radius of all images */
+  border-radius: 0.1rem; /* radius of all images */
 }
 img.small {
   max-width: 5rem;
@@ -171,15 +191,19 @@ img.large {
   /* border, background color outside of image */
   border: 0.1rem #c0c0c0 solid; /*grey color and style solid*/
   background-color: #f8f8f8; /*very light gray */
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
   margin: 1rem;
+  width: 20%;
 }
 .card-body {
   /* padding for name, star and price */
   padding: 1rem;
+
+  width: 90%;
 }
 .card-body > * {
   /* for all elements inside body */
+  /* width: 100%; */
   margin-bottom: 0.5rem; /* The margin-bottom property sets the bottom margin of an element. */
 }
 .price {
@@ -208,7 +232,7 @@ img.large {
 .alert {
   padding: 1rem;
   border: 0.1rem solid transparent;
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
 }
 .alert-info {
   color: #2020a0;
@@ -251,7 +275,7 @@ img.large {
   background-color: #203040;
   margin: 0;
   margin-top: 0.4rem;
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -286,4 +310,22 @@ img.large {
 }
 .table button {
   margin: 0 0.2rem;
+}
+
+/* Search */
+.search button {
+  border-radius: 0 0.1rem 0.1rem 0;
+  margin-right: 0.5rem;
+}
+.search input {
+  border-radius: 0.1rem 0 0 0.1rem;
+  border-right: none;
+  margin-left: 0.5rem;
+}
+.searchButton {
+  border-radius: 0 0.1rem 0.1rem 0.1rem;
+  margin: 0.5rem;
+  color: #60f060;
+  background: #000000;
+  /* border: 0.1rem #60f060 solid; */
 }

@@ -18,6 +18,10 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+import UserListScreen from "./screens/UserListScreen";
+import UserEditScreen from "./screens/UserEditScreen";
+import SearchBox from "./components/SearchBox";
+import SearchScreen from "./screens/SearchScreen";
 
 const App = () => {
   const cart = useSelector((state) => state.cart);
@@ -40,8 +44,15 @@ const App = () => {
             </Link>
           </div>
           <div>
+            <Route
+              render={({ history }) => (
+                <SearchBox history={history}></SearchBox>
+              )}
+            ></Route>
+          </div>
+          <div>
             <Link to="/cart">
-              Cart
+              <div className="fa fa-shopping-cart"></div>Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
@@ -66,8 +77,9 @@ const App = () => {
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Sign in</Link>
             )}
+
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
@@ -107,6 +119,11 @@ const App = () => {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <Route
+            path="/search/name/:name?"
+            component={SearchScreen}
+            exact
+          ></Route>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
@@ -114,10 +131,17 @@ const App = () => {
           <AdminRoute
             path="/productlist"
             component={ProductListScreen}
+            exact
           ></AdminRoute>
           <AdminRoute
             path="/orderlist"
             component={OrderListScreen}
+            exact
+          ></AdminRoute>
+          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
+          <AdminRoute
+            path="/user/:id/edit"
+            component={UserEditScreen}
           ></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>

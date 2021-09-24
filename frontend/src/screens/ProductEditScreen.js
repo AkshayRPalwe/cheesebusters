@@ -7,6 +7,7 @@ import MessageBox from "../components/MessageBox";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
 export default function ProductEditScreen(props) {
+  //console.log("PROPS", props);
   const productId = props.match.params.id;
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
