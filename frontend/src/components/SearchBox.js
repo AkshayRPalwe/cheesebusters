@@ -17,7 +17,7 @@ export default function SearchBox(props) {
         ></input>
 
         <button className="searchButton" type="submit">
-          <div>Searchssss</div>
+          <div>Search</div>
         </button>
       </div>
     </form>
